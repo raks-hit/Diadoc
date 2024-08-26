@@ -1,9 +1,21 @@
+"use client"
 import Image from "next/image";
+import Header from "./_components/Header";
+import Hero from "./_components/Hero";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  const {user}=useKindeBrowserClient();
+
+  useEffect(()=>{
+    console.log("--",user)
+  },[user])
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    
-    </main>
+    <div>
+      <Header/>
+      <Hero/>
+    </div>
   );
 }
